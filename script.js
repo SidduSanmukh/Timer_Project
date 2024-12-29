@@ -8,6 +8,7 @@ let RESET = document.querySelector("#RESET");
 stop.style.display = "none";
 RESET.style.display = "none";
 
+//Addinng A click Event To Start Button
 start.addEventListener("click", () => {
   let accept = input.value;
   if (accept == "") {
@@ -17,13 +18,13 @@ start.addEventListener("click", () => {
     start.style.display = "none";
     stop.style.display = "block";
   }
-  console.log(accept);
 
   let counter = 0;
   let minutes = accept;
   let seconds = 59;
   let mili_seconds = 99;
 
+  //Adding a Interval function
   const interval = setInterval(() => {
     counter++;
     decre = mili_seconds--;
@@ -49,16 +50,21 @@ start.addEventListener("click", () => {
       MS.innerHTML = "00";
     }
   }, 10);
+
+  //Clearing The Interval
   if (minutes < 0) {
     setTimeout(() => {
       clearInterval(interval);
     }, 60000);
   }
+
+  //Addinng A click Event To Start Button
   stop.addEventListener("click", () => {
     clearInterval(interval);
     RESET.style.display = "block";
     stop.style.display = "none";
   });
+  //Addinng A click Event To Start Button
   RESET.addEventListener("click", () => {
     M.innerHTML = "00";
     S.innerHTML = "00";
